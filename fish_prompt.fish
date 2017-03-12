@@ -45,7 +45,7 @@ function show_user -d "Show user"
     # Skip @ bit if hostname == username
     if [ "$USER" != "$HOST" ]
       prompt_segment normal white "@"
-      prompt_segment normal green "$host"
+      prompt_segment normal green "$host "
       set pad ""
     end
   end
@@ -61,9 +61,9 @@ end
 function show_prompt -d "Shows prompt with cue for current priv"
   set -l uid (id -u $USER)
   if [ $uid -eq 0 ]
-    prompt_segment red white " ! :"
+    prompt_segment red white " ! "
     set_color normal
-    echo -n -s " "
+    echo -n -s ": "
   else
     prompt_segment normal white " \$: "
   end
