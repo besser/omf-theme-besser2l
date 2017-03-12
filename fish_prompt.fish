@@ -45,7 +45,8 @@ function show_user -d "Show user"
     # Skip @ bit if hostname == username
     if [ "$USER" != "$HOST" ]
       prompt_segment normal white "@"
-      prompt_segment normal green "$host:"
+      prompt_segment normal green "$host"
+      prompt_segment normal white ":"
       set pad ""
     end
   end
