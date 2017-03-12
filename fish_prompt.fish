@@ -46,7 +46,6 @@ function show_user -d "Show user"
     if [ "$USER" != "$HOST" ]
       prompt_segment normal white "@"
       prompt_segment normal green "$host"
-      prompt_segment normal white ":"
       set pad ""
     end
   end
@@ -55,18 +54,18 @@ end
 # Show directory
 function show_pwd -d "Show the current directory"
   set -l pwd (prompt_pwd)
-  prompt_segment normal blue "[$pad$pwd]"
+  prompt_segment normal blue "$pad$pwd"
 end
 
 # Show prompt w/ privilege cue
 function show_prompt -d "Shows prompt with cue for current priv"
   set -l uid (id -u $USER)
   if [ $uid -eq 0 ]
-    prompt_segment red white " ! "
+    prompt_segment red white " ! :"
     set_color normal
     echo -n -s " "
   else
-    prompt_segment normal white " \$"
+    prompt_segment normal white " \$: "
   end
   set_color normal
 end
