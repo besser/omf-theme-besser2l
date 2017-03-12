@@ -40,6 +40,7 @@ function show_user -d "Show user"
   if [ "$USER" != "$default_user" -o -n "$SSH_CLIENT" ]
     set -l host (hostname -s)
     set -l who (whoami)
+    set -l uid (id -u $USER)
     
     if [ $uid -eq 0 ]
       prompt_segment normal red "$who"
