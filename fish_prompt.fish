@@ -21,11 +21,11 @@ function show_status -d "Function to show the current status"
   if [ $RETVAL -ne 0 ]
     prompt_segment red white " ▲ "
     set pad ""
-    end
+  end
   if [ -n "$SSH_CLIENT" ]
-      prompt_segment blue white " SSH: "
-      set pad ""
-    end
+    prompt_segment blue white " SSH: "
+    set pad ""
+  end
 end
 
 function show_virtualenv -d "Show active python virtual environments"
@@ -45,10 +45,10 @@ function show_user -d "Show user"
     # Skip @ bit if hostname == username
     if [ "$USER" != "$HOST" ]
       prompt_segment normal white "@"
-      prompt_segment normal green "$host "
+      prompt_segment normal green "$host:"
       set pad ""
     end
-    end
+  end
 end
 
 # Show directory
