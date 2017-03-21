@@ -3,10 +3,14 @@ function fish_greeting -d "Greeting message on shell session start up"
     echo ""
     echo -en (welcome_message) "\n\n"
     echo -en (show_date_info) "\n\n"
-    echo -en (show_os_info) "\n"
-    echo -en (show_cpu_info) "\n"
-    echo -en (show_mem_info) "\n"
-    echo -en (show_net_info) "\n"
+    if [ "$os_type" = "Linux" ]
+        echo -en (show_os_info) "\n"
+        echo -en (show_cpu_info) "\n"
+        echo -en (show_mem_info) "\n"
+        echo -en (show_net_info) "\n"
+    else if [ "$os_type" = "Darwin" ]
+        echo -en (show_net_info_only) "\n"
+    end
     echo ""
     set_color FFF
     echo "All your bases are belong to us!"
@@ -125,6 +129,29 @@ function show_net_info -d "Prints information about network"
     echo -en "Net   : "
     set_color cyan
     echo -en "IP address $ip, Gateway $gw"
+    set_color normal
+
+end
+
+
+function show_net_info_only -d "Prints information about network"
+
+    set --local os_type (uname -s)
+    set --local ip ""
+    set --local gw ""
+
+    if [ "$os_type" = "Linux" ]
+        set ip (ip addr show | grep -v "127.0.0.1" | grep "inet "| sed 's/^ *//g' | cut -d " " -f2)
+        set gw (netstat -nr | grep UG | cut -d " " -f10)
+    else if [ "$os_type" = "Darwin" ]
+        set ip (ifconfig | grep -v "127.0.0.1" | grep "inet " | head -1 | cut -d " " -f2)
+        set gw (netstat -nr | grep default | cut -d " " -f13)
+    end
+
+    set_color FFF
+    echo -en "Network: "
+    set_color cyan
+    echo -en "IP: $ip | Gateway: $gw"
     set_color normal
 
 end
