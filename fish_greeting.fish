@@ -1,5 +1,6 @@
 function fish_greeting -d "Greeting message on shell session start up"
 
+    set --local os_type (uname -s)
     echo ""
     echo -en (welcome_message) "\n\n"
     echo -en (show_date_info) "\n\n"
