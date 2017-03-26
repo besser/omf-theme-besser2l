@@ -22,6 +22,8 @@ function get_git_status -d "Gets the current git status"
     echo " $ref "
     set_color normal
    end
+   
+   echo -e ''
 end
 
 function fish_right_prompt -d "Prints right prompt"
