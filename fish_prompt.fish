@@ -69,7 +69,7 @@ end
 # Show prompt w/ privilege cue
 function show_prompt -d "Shows prompt with cue for current priv"
   set -l uid (id -u $USER)
-  echo -en "\n"
+  echo -e ''
   if [ $uid -eq 0 ]
     prompt_segment normal red "#"
     set_color normal
@@ -78,7 +78,6 @@ function show_prompt -d "Shows prompt with cue for current priv"
   end
   echo -n -s " "
   set_color normal
-  echo -en "\n"
 end
 
 ## SHOW PROMPT
@@ -89,4 +88,5 @@ function fish_prompt
   show_user
   show_pwd
   show_prompt
+  echo -e ''
 end
