@@ -82,7 +82,7 @@ end
 
 ## SHOW PROMPT
 function fish_prompt
-  echo -e ''
+  echo -e 
   set -g RETVAL $status
   show_status
   show_virtualenv
