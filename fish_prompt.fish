@@ -70,10 +70,10 @@ end
 function show_prompt -d "Shows prompt with cue for current priv"
   set -l uid (id -u $USER)
   if [ $uid -eq 0 ]
-    prompt_segment normal red "#"
+    prompt_segment normal red "\n#"
     set_color normal
   else
-    prompt_segment normal white "\$"
+    prompt_segment normal white "\n\$"
   end
   echo -n -s " "
   set_color normal
