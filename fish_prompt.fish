@@ -88,5 +88,4 @@ function fish_prompt
   show_user
   show_pwd
   show_prompt
-  echo -e ''
 end
