@@ -78,6 +78,7 @@ function show_prompt -d "Shows prompt with cue for current priv"
   end
   echo -n -s " "
   set_color normal
+  echo -en "\n"
 end
 
 ## SHOW PROMPT
