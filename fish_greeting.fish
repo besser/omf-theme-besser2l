@@ -19,7 +19,7 @@ function fish_greeting -d "Greeting message on shell session start up"
     echo ""
     set_color FFF
     echo "All your bases are belong to us!"
-    echo ""
+    #echo ""
     set_color normal
 
 end
