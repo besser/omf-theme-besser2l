@@ -3,14 +3,18 @@ function fish_greeting -d "Greeting message on shell session start up"
     set --local os_type (uname -s)
     echo ""
     echo -en (welcome_message) "\n\n"
-    echo -en (show_date_info) "\n\n"
+    # echo -en (show_date_info) "\n\n"
     if [ "$os_type" = "Linux" ]
         echo -en (show_os_info) "\n"
         echo -en (show_cpu_info) "\n"
         echo -en (show_mem_info) "\n"
         echo -en (show_net_info) "\n"
     else if [ "$os_type" = "Darwin" ]
-        echo -en (show_net_info_only) "\n"
+        echo -en (show_os_info) "\n"
+        echo -en (show_cpu_info) "\n"
+        echo -en (show_mem_info) "\n"
+        echo -en (show_net_info) "\n"
+        #echo -en (show_net_info_only) "\n"
     end
     echo ""
     set_color FFF
