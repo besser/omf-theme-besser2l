@@ -10,13 +10,13 @@ function fish_greeting -d "Greeting message on shell session start up"
         echo -en (show_mem_info) "\n"
         echo -en (show_net_info) "\n"
     else if [ "$os_type" = "Darwin" ]
-        echo -en (show_os_info) "\n"
-        echo -en (show_cpu_info) "\n"
-        echo -en (show_mem_info) "\n"
-        echo -en (show_net_info) "\n"
+        #echo -en (show_os_info) "\n"
+        #echo -en (show_cpu_info) "\n"
+        #echo -en (show_mem_info) "\n"
+        #echo -en (show_net_info) "\n"
         #echo -en (show_net_info_only) "\n"
     end
-    echo ""
+    #echo ""
     set_color FFF
     echo "All your bases are belong to us!"
     #echo ""
@@ -31,7 +31,7 @@ function welcome_message -d "Say welcome to user"
     set_color cyan
     echo -en (whoami) | tr -d " "
     set_color normal
-    echo "!"
+    echo "."
 
 end
 
