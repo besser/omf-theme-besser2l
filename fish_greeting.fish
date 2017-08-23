@@ -1,5 +1,6 @@
 function fish_greeting -d "Greeting message on shell session start up"
 
+    cat /etc/motd
     set --local os_type (uname -s)
     echo ""
     echo -en (welcome_message) "\n\n"
